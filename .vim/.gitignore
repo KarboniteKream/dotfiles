@@ -1,0 +1,5 @@
+autoload/
+plugins/
+
+.netrwhist
+viminfo
