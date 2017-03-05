@@ -124,7 +124,7 @@ colorscheme atelier_forest
 
 if has('gui_running')
 	set guiheadroom=0
-	set guioptions=ceg
+	set guioptions=cg
 
 	set columns=110
 	set lines=60
