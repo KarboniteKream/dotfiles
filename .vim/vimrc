@@ -224,6 +224,9 @@ let g:lightline = {
 \		'left': [['buffers']],
 \		'right': [],
 \	},
+\	'component': {
+\		'lineinfo': "%{printf('%2d/%2d:%2d', line('.'), line('$'), col('.'))}",
+\	},
 \	'component_function': {
 \		'ale': 'ALEGetStatusLine',
 \	},
