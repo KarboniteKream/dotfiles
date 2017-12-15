@@ -21,8 +21,8 @@ call plug#begin('$CONFIG/plugins')
 	Plug 'mbbill/undotree'
 	Plug 'mgee/lightline-bufferline'
 	Plug 'mhinz/vim-signify'
+	Plug 'posva/vim-vue'
 	Plug 'rstacruz/sparkup'
-	Plug 'rstacruz/vim-closer'
 	Plug 'terryma/vim-expand-region'
 	Plug 'tpope/vim-characterize'
 	Plug 'tpope/vim-commentary'
@@ -285,6 +285,13 @@ autocmd FileType php set expandtab commentstring=\/\/\ %s
 autocmd FileType c set commentstring=\/\/\ %s
 autocmd FileType cpp set commentstring=\/\/\ %s
 autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+
+" }}} --------------------------------------------------------------------------
+
+" MISCELLANEOUS {{{ ------------------------------------------------------------
+
+let php_htmlInStrings = 1
+let php_sql_query = 1
 
 " }}} --------------------------------------------------------------------------
 
