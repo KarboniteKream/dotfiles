@@ -1,0 +1,47 @@
+{
+    "editor.autoClosingBrackets": false,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.wordWrap": "on",
+    "explorer.autoReveal": false,
+    "explorer.sortOrder": "mixed",
+    "extensions.autoUpdate": false,
+    "extensions.ignoreRecommendations": true,
+    "files.associations": {
+        "*.module": "php",
+        "*.inc": "php"
+    },
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "go.buildOnSave": "off",
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "npm.packageManager": "yarn",
+    "php.suggest.basic": false,
+    "python.formatting.provider": "yapf",
+    "python.pythonPath": "python3",
+    "terminal.external.osxExec": "iTerm.app",
+    "vim.hlsearch": true,
+    "vim.leader": " ",
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": ["<C-u>"],
+            "after": ["2", "0", "k"]
+        },
+        {
+            "before": ["<C-d>"],
+            "after": ["2", "0", "j"]
+        }
+    ],
+    "vim.visualstar": true,
+    "workbench.colorTheme": "Gruvbox Dark (Medium)",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editor.tabSizing": "shrink"
+}
