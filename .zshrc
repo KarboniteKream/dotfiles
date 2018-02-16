@@ -39,9 +39,8 @@ test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_int
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias diff="colordiff"
 
-# TODO: Path, .zprofile
 
-export PATH=$HOME/.bin:$PATH
+export PATH="$HOME/.bin:/usr/local/sbin:$PATH"
 
 mkcdir ()
 {
