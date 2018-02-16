@@ -19,6 +19,7 @@
     "php.suggest.basic": false,
     "python.formatting.provider": "yapf",
     "python.pythonPath": "python3",
+    "search.smartCase": true,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.shell.osx": "zsh",
     "vim.hlsearch": true,
@@ -43,6 +44,6 @@
     ],
     "vim.visualstar": true,
     "workbench.colorTheme": "Gruvbox Dark (Medium)",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.editor.tabSizing": "shrink"
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.startupEditor": "none"
 }
