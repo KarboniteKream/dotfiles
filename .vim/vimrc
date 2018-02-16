@@ -194,6 +194,7 @@ nnoremap <Leader>v `[v`]
 
 " Miscellaneous.
 nnoremap Y y$
+nnoremap q: <Nop>
 
 " }}} --------------------------------------------------------------------------
 
