@@ -1,0 +1,9 @@
+depcheck
+eslint
+http-server
+knex
+nodemon
+package-json-validator
+password-generator
+vue-cli
+webpack
