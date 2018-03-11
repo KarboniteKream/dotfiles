@@ -1,11 +1,14 @@
 bash
 bash-completion
+# cask-repair
 certbot
 cloc
 colordiff
+# composer
 coreutils
 curl
 dos2unix
+duti
 ffmpeg
 gcc
 gdb
@@ -20,13 +23,15 @@ mariadb
 mas
 ncdu
 node
+php
 python
-python3
 ranger
 redir
 redis
+rename
 ripgrep
 ruby
+stone-soup
 sqlite
 sshfs
 subliminal
