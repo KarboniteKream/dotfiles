@@ -18,10 +18,11 @@ HIST_STAMPS="yyyy-mm-dd"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(base16-shell colored-man-pages git sudo wd zsh-syntax-highlighting)
+plugins=(base16-shell colored-man-pages git sudo)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # TODO: Improve with custom function.
 local git_branch='$(git_prompt_info)'
