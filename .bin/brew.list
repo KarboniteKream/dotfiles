@@ -1,14 +1,14 @@
 bash
 bash-completion
-# cask-repair
+cask-repair
 certbot
 cloc
 colordiff
-# composer
 coreutils
 curl
 dos2unix
 duti
+fasd
 ffmpeg
 gcc
 gdb
