@@ -151,6 +151,9 @@
   (setq js2-include-node-externs t)
   (setq js2-strict-trailing-comma-warning nil))
 
+(use-package markdown-mode
+  :ensure t)
+
 (use-package elixir-mode
   :ensure t
   :config
