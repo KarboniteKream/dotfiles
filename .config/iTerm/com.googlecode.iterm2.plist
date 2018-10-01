@@ -428,11 +428,6 @@
 	<false/>
 	<key>NSScrollViewShouldScrollUnderTitlebar</key>
 	<false/>
-	<key>NSSplitView Subview Frames NSColorPanelSplitView</key>
-	<array>
-		<string>0.000000, 0.000000, 224.000000, 263.000000, NO, NO</string>
-		<string>0.000000, 264.000000, 224.000000, 43.000000, NO, NO</string>
-	</array>
 	<key>NSTableView Columns v2 KeyBingingTable</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -461,14 +456,14 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSColorPanel</key>
-	<string>0 130 224 280 0 0 1920 1177 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>1398 1250 400 129 0 0 3200 1777 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>4170 1128 620 392 3200 360 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>470 182 796 473 0 0 1920 1177 </string>
+	<string>3396 514 796 486 3200 360 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>430 193 1130 699 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>247 132 1130 699 0 0 1920 1177 </string>
+	<string>3589 560 1760 1077 3200 360 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_0E5C108C-ECD0-47A8-A95C-E4FA28AA3929</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_0E5C108C-ECD0-47A8-A95C-E4FA28AA3929_selection</key>
@@ -1240,7 +1235,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1303,18 +1298,18 @@
 			<string>~</string>
 		</dict>
 	</array>
-	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
-	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>A66386F5-7E17-411A-84E0-558BEE427766</string>
+	<string>EFDE9459-114F-4274-BDFE-4695FEA6E291</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>539453545.58679295</real>
+	<real>546142920.30423295</real>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenBookmark</key>
@@ -1363,11 +1358,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=66</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=9</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-02-04T16:12:41Z</date>
+	<date>2018-09-28T06:04:39Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1388,7 +1383,11 @@
 	<false/>
 	<key>WindowNumber</key>
 	<false/>
+	<key>WordCharacters</key>
+	<string>/-+\~_.</string>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.1.5</string>
+	<string>3.2.1</string>
 </dict>
 </plist>
