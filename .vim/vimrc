@@ -166,13 +166,14 @@ nnoremap <silent> <Backspace> :b!#<Return>
 nnoremap <Leader>ev :edit $MYVIMRC<Return>
 nnoremap <Leader>eb :edit $HOME/.bashrc<Return>
 nnoremap <Leader>ez :edit $HOME/.zshrc<Return>
-nnoremap <silent> <Leader>s :source $MYVIMRC<Return>
+nnoremap <silent> <Leader>\ :source $MYVIMRC<Return>
 
 nnoremap <silent> <Leader><Leader> :nohlsearch<Return>
 
 " Toggles.
 nnoremap <silent> <Leader>l :set list!<Return>
 nnoremap <silent> <Leader>p :setlocal paste!<Return>
+nnoremap <silent> <Leader>s :set spell!<Return>
 
 " Common typos.
 " Source: https://sanctum.geek.nz/arabesque/vim-command-typos
