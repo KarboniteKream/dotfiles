@@ -1,5 +1,7 @@
-export LC_ALL=en_US.UTF-8
+export EDITOR=vim
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export PATH="$HOME/.dotfiles/bin:/usr/local/sbin:$PATH"
 export ZSH=~/.oh-my-zsh
 
 ZSH_THEME=""
@@ -25,16 +27,11 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}✗"
 
 local ret_status="%(?:$:%{$fg_bold[red]%}$%{$reset_color%})"
-
 PROMPT=$'%B%{$fg[green]%}%n@%m %{$fg[blue]%}%~%{$reset_color%}%b $(git_prompt_info)\n${ret_status} '
 RPROMPT="%D{%H:%M:%S}"
 
-test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
-
-alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias diff="colordiff"
-
-export PATH="$HOME/.bin:/usr/local/sbin:$PATH"
+alias dotfiles="git --git-dir=$HOME/.git-dotfiles --work-tree=$HOME"
 
 function mkcdir() {
 	mkdir -p -- "$1" && cd -P -- "$1"
