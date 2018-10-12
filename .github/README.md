@@ -11,7 +11,10 @@ function dotfiles() {
 
 git clone --bare https://github.com/KarboniteKream/dotfiles.git $HOME/.git-dotfiles
 dotfiles checkout
-dotfiles submodule init
-dotfiles submodule update
+dotfiles submodule update --init
 dotfiles config --local status.showUntrackedFiles no
 ```
+
+## Submodules
+
+The submodules can be updated with `dotfiles submodule update --remote`.
