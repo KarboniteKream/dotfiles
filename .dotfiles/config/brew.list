@@ -43,4 +43,3 @@ wget
 yarn
 youtube-dl
 zsh
-zsh-completions
