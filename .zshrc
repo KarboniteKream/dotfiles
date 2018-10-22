@@ -1,12 +1,12 @@
 setopt extendedglob
 
-export EDITOR=vim
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+export EDITOR="vim"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 export PATH="$HOME/.dotfiles/bin:/usr/local/sbin:$PATH"
-export ZSH=~/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_CUSTOM=~/.zsh
+ZSH_CUSTOM="$HOME/.zsh"
 ZSH_THEME="kream"
 CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
@@ -23,7 +23,7 @@ plugins=(base16-shell colored-man-pages git sudo zsh-completions zsh-syntax-high
 # Only update completions cache every 24 hours.
 # See: https://gist.github.com/ctechols/ca1035271ad134841284
 autoload -Uz compinit
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
     compinit && compdump
 else
     compinit -C
