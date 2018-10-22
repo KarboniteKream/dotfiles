@@ -16,11 +16,10 @@ HIST_STAMPS="yyyy-mm-dd"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugins can be found in ~/.oh-my-zsh/plugins and ~/.zsh/plugins.
-plugins=(base16-shell colored-man-pages git sudo)
+plugins=(base16-shell colored-man-pages git sudo zsh-syntax-highlighting)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
