@@ -1,3 +1,5 @@
+setopt extendedglob
+
 export EDITOR=vim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -17,7 +19,15 @@ HIST_STAMPS="yyyy-mm-dd"
 
 # Plugins can be found in ~/.oh-my-zsh/plugins and ~/.zsh/plugins.
 plugins=(base16-shell colored-man-pages git sudo zsh-completions zsh-syntax-highlighting)
-autoload -U compinit && compinit
+
+# Only update completions cache every 24 hours.
+# See: https://gist.github.com/ctechols/ca1035271ad134841284
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+    compinit && compdump
+else
+    compinit -C
+fi
 
 source $ZSH/oh-my-zsh.sh
 
