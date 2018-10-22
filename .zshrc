@@ -17,8 +17,18 @@ HIST_STAMPS="yyyy-mm-dd"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Plugins can be found in ~/.oh-my-zsh/plugins and ~/.zsh/plugins.
-plugins=(base16-shell colored-man-pages git sudo zsh-completions zsh-syntax-highlighting)
+plugins=(
+    # ~/.oh-my-zsh/plugins
+    colored-man-pages
+    git
+    sudo
+
+    # ~/.zsh/plugins
+    base16-shell
+    zsh-autosuggestions
+    zsh-completions
+    zsh-syntax-highlighting
+)
 
 # Only update completions cache every 24 hours.
 # See: https://gist.github.com/ctechols/ca1035271ad134841284
