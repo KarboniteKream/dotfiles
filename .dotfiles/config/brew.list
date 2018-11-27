@@ -1,3 +1,4 @@
+ansible
 bash
 bash-completion
 cask-repair
@@ -8,21 +9,28 @@ coreutils
 curl
 dos2unix
 duti
-fasd
+fd
 ffmpeg
+fzf
 gcc
 gdb
 ghostscript
 git
 gnu-sed
 go
+gradle
 htop
 httpie
 imagemagick
+links
 mariadb
 mas
+mongodb
+mysql@5.7
 ncdu
-node
+node@8
+openssl
+perl
 php
 python
 ranger
@@ -30,7 +38,9 @@ redir
 redis
 rename
 ripgrep
+rtv
 ruby
+rust
 sqlite
 stone-soup
 subliminal
@@ -40,6 +50,6 @@ tree
 unzip
 vim
 wget
-yarn
+yarn --without-node
 youtube-dl
 zsh
