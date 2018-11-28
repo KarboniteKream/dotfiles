@@ -202,7 +202,9 @@
 
 (setq ring-bell-function 'ignore)
 
-(global-linum-mode t)
+(setq-default display-line-numbers-width-start t)
+(global-display-line-numbers-mode)
+
 (column-number-mode t)
 
 (setq scroll-conservatively 1000)
