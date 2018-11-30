@@ -1,6 +1,7 @@
 1password
 alfred
 anki
+bitbar
 brogue
 daisydisk
 dash
@@ -11,9 +12,11 @@ dungeon-crawl-stone-soup-tiles
 emacs
 fantastical
 firefox
+fluor
 flux
 forklift
 gimp
+gitify
 google-chrome
 hex-fiend
 imageoptim
@@ -22,7 +25,7 @@ iterm2
 caskroom/versions/java8
 kaleidoscope
 karabiner-elements
-mactex-no-ghostscript
+mactex
 macvim
 microsoft-office
 mpv
@@ -44,4 +47,4 @@ tower
 transmission
 viscosity
 visual-studio-code
-vmware-fusion
+vmware-fusion10
