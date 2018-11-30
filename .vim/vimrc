@@ -6,45 +6,45 @@ let $CONFIG = $HOME . '/.vim'
 
 " Download vim-plug if necessary.
 if empty(glob('$CONFIG/autoload/plug.vim'))
-	silent !curl -fLo $CONFIG/autoload/plug.vim --create-dirs
-	\ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    silent !curl -fLo $CONFIG/autoload/plug.vim --create-dirs
+    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 call plug#begin('$CONFIG/plugins')
-	Plug 'chrisbra/Recover.vim'
-	Plug 'ctrlpvim/ctrlp.vim'
-	Plug 'editorconfig/editorconfig-vim'
-	Plug 'itchyny/lightline.vim'
-	Plug 'junegunn/rainbow_parentheses.vim'
-	Plug 'justinmk/vim-dirvish'
-	Plug 'KarboniteKream/vim-atelier-forest'
-	Plug 'mbbill/undotree'
-	Plug 'mgee/lightline-bufferline'
-	Plug 'mhinz/vim-signify'
-	Plug 'posva/vim-vue'
-	Plug 'rstacruz/sparkup'
-	Plug 'terryma/vim-expand-region'
-	Plug 'tpope/vim-characterize'
-	Plug 'tpope/vim-commentary'
-	Plug 'tpope/vim-eunuch'
-	Plug 'tpope/vim-fugitive'
-	Plug 'tpope/vim-repeat'
-	Plug 'tpope/vim-speeddating'
-	Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-unimpaired'
-	Plug 'wellle/targets.vim'
-	Plug 'w0rp/ale'
+    Plug 'chrisbra/Recover.vim'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'itchyny/lightline.vim'
+    Plug 'junegunn/rainbow_parentheses.vim'
+    Plug 'justinmk/vim-dirvish'
+    Plug 'KarboniteKream/vim-atelier-forest'
+    Plug 'mbbill/undotree'
+    Plug 'mgee/lightline-bufferline'
+    Plug 'mhinz/vim-signify'
+    Plug 'posva/vim-vue'
+    Plug 'rstacruz/sparkup'
+    Plug 'terryma/vim-expand-region'
+    Plug 'tpope/vim-characterize'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-eunuch'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-speeddating'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-unimpaired'
+    Plug 'wellle/targets.vim'
+    Plug 'w0rp/ale'
 call plug#end()
 
 " Install any missing plugins.
 if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-	if has('vim_starting')
-		autocmd VimEnter * PlugInstall --sync | q | source $MYVIMRC
-	else
-		PlugInstall --sync | q | source $MYVIMRC
-	endif
+    if has('vim_starting')
+        autocmd VimEnter * PlugInstall --sync | q | source $MYVIMRC
+    else
+        PlugInstall --sync | q | source $MYVIMRC
+    endif
 
-	finish
+    finish
 endif
 
 " }}} --------------------------------------------------------------------------
@@ -90,6 +90,7 @@ set listchars=tab:>\ ,space:·,trail:-
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set expandtab
 
 set breakindent
 let &showbreak = '» '
@@ -123,15 +124,15 @@ colorscheme atelier_forest
 " GUI {{{-----------------------------------------------------------------------
 
 if has('gui_running')
-	set guiheadroom=0
-	set guioptions=cg
+    set guiheadroom=0
+    set guioptions=cg
 
-	set columns=110
-	set lines=60
+    set columns=110
+    set lines=60
 
-	if has('win32')
-		set guifont=Consolas:h8
-	endif
+    if has('win32')
+        set guifont=Consolas:h8
+    endif
 endif
 
 " }}} --------------------------------------------------------------------------
@@ -206,48 +207,47 @@ let g:lightline#bufferline#unnamed = '[No Name]'
 
 " lightline
 let g:lightline = {
-\	'colorscheme': 'atelier_forest',
-\	'active': {
-\		'left': [
-\			['mode', 'paste'],
-\			['filename', 'readonly', 'ale', 'modified']
-\		],
-\		'right': [
-\			['lineinfo'],
-\			['percent'],
-\			['filetype', 'fileformat', 'fileencoding']
-\		],
-\	},
-\	'inactive': {
-\		'left': [['filename', 'readonly', 'ale', 'modified']],
-\		'right': [['lineinfo'], ['percent']],
-\	},
-\	'tabline': {
-\		'left': [['buffers']],
-\		'right': [],
-\	},
-\	'component': {
-\		'lineinfo': "%{printf('%2d/%2d:%2d', line('.'), line('$'), col('.'))}",
-\	},
-\	'component_function': {
-\		'ale': 'ALEGetStatusLine',
-\	},
-\	'component_expand': {
-\		'buffers': 'lightline#bufferline#buffers',
-\	},
-\	'component_type': {
-\		'buffers': 'tabsel',
-\	},
+\   'colorscheme': 'atelier_forest',
+\   'active': {
+\       'left': [
+\           ['mode', 'paste'],
+\           ['filename', 'readonly', 'ale', 'modified']
+\       ],
+\       'right': [
+\           ['lineinfo'],
+\           ['percent'],
+\           ['filetype', 'fileformat', 'fileencoding']
+\       ],
+\   },
+\   'inactive': {
+\       'left': [['filename', 'readonly', 'ale', 'modified']],
+\       'right': [['lineinfo'], ['percent']],
+\   },
+\   'tabline': {
+\       'left': [['buffers']],
+\       'right': [],
+\   },
+\   'component': {
+\       'lineinfo': "%{printf('%2d/%2d:%2d', line('.'), line('$'), col('.'))}",
+\   },
+\   'component_function': {
+\       'ale': 'ALEGetStatusLine',
+\   },
+\   'component_expand': {
+\       'buffers': 'lightline#bufferline#buffers',
+\   },
+\   'component_type': {
+\       'buffers': 'tabsel',
+\   },
 \ }
 
 call lightline#init()
 call lightline#update()
 
 " ctrlp
-if executable('fd')
-	let g:ctrlp_user_command = 'fd --type f "" %s'
-	let g:ctrlp_use_caching = 0
-endif
+let g:ctrlp_max_height = 16
+let g:ctrlp_user_command = 'fd --type f "" %s'
+let g:ctrlp_use_caching = 0
 
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
@@ -281,7 +281,7 @@ nnoremap <silent> <Leader>a :ALEToggle<Return>
 " Trim trailing whitespace on save
 let s:blacklist = []
 autocmd BufWritePre * if index(s:blacklist, &ft) < 0
-	\ | :keeppatterns :%substitute/\s\+$//e
+    \ | :keeppatterns :%substitute/\s\+$//e
 
 autocmd FileType php set expandtab commentstring=\/\/\ %s
 autocmd FileType c set commentstring=\/\/\ %s
