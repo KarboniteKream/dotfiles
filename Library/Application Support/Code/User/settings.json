@@ -1,5 +1,5 @@
 {
-    "editor.autoClosingBrackets": false,
+    "editor.autoClosingBrackets": "never",
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "none",
     "editor.wordWrap": "on",

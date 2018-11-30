@@ -6,8 +6,10 @@ dbaeumer.vscode-eslint
 mikestead.dotenv
 ms-python.python
 ms-vsliveshare.vsliveshare
-msjsdiag.debugger-for-chrome
 octref.vetur
+redhat.java
 tomphilbin.gruvbox-themes
+vscjava.vscode-java-debug
+vscjava.vscode-java-test
 vscodevim.vim
 wayou.vscode-todo-highlight
