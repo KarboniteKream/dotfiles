@@ -161,7 +161,7 @@ nnoremap Q <NOP>
 nnoremap <Leader>b :ls<Return>:b<Space>
 nnoremap <silent> <Left> :bprevious<Return>
 nnoremap <silent> <Right> :bnext<Return>
-nnoremap <silent> <Backspace> :b!#<Return>
+nnoremap <silent> <Backspace> <C-^>
 
 " Configuration files.
 nnoremap <Leader>ev :edit $MYVIMRC<Return>
@@ -207,38 +207,38 @@ let g:lightline#bufferline#unnamed = '[No Name]'
 
 " lightline
 let g:lightline = {
-\   'colorscheme': 'atelier_forest',
-\   'active': {
-\       'left': [
-\           ['mode', 'paste'],
-\           ['filename', 'readonly', 'ale', 'modified']
-\       ],
-\       'right': [
-\           ['lineinfo'],
-\           ['percent'],
-\           ['filetype', 'fileformat', 'fileencoding']
-\       ],
-\   },
-\   'inactive': {
-\       'left': [['filename', 'readonly', 'ale', 'modified']],
-\       'right': [['lineinfo'], ['percent']],
-\   },
-\   'tabline': {
-\       'left': [['buffers']],
-\       'right': [],
-\   },
-\   'component': {
-\       'lineinfo': "%{printf('%2d/%2d:%2d', line('.'), line('$'), col('.'))}",
-\   },
-\   'component_function': {
-\       'ale': 'ALEGetStatusLine',
-\   },
-\   'component_expand': {
-\       'buffers': 'lightline#bufferline#buffers',
-\   },
-\   'component_type': {
-\       'buffers': 'tabsel',
-\   },
+\    'colorscheme': 'atelier_forest',
+\    'active': {
+\        'left': [
+\            ['mode', 'paste'],
+\            ['filename', 'readonly', 'ale', 'modified']
+\        ],
+\        'right': [
+\            ['lineinfo'],
+\            ['percent'],
+\            ['filetype', 'fileformat', 'fileencoding']
+\        ],
+\    },
+\    'inactive': {
+\        'left': [['filename', 'readonly', 'ale', 'modified']],
+\        'right': [['lineinfo'], ['percent']],
+\    },
+\    'tabline': {
+\        'left': [['buffers']],
+\        'right': [],
+\    },
+\    'component': {
+\        'lineinfo': "%{printf('%2d/%2d:%2d', line('.'), line('$'), col('.'))}",
+\    },
+\    'component_function': {
+\        'ale': 'ALEGetStatusLine',
+\    },
+\    'component_expand': {
+\        'buffers': 'lightline#bufferline#buffers',
+\    },
+\    'component_type': {
+\        'buffers': 'tabsel',
+\    },
 \ }
 
 call lightline#init()
