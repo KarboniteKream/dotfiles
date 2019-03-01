@@ -33,6 +33,7 @@ node@8
 openssl
 perl
 php
+pinentry-mac
 python
 pv
 ranger
