@@ -2,25 +2,42 @@
     "editor.autoClosingBrackets": "never",
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "none",
+    "editor.rulers": [
+        80,
+        100,
+        112
+    ],
     "editor.wordWrap": "on",
+    "eslint.packageManager": "yarn",
     "explorer.autoReveal": false,
+    "explorer.openEditors.visible": 0,
     "explorer.sortOrder": "mixed",
     "extensions.autoUpdate": false,
-    "extensions.ignoreRecommendations": true,
+    "extensions.showRecommendationsOnlyOnDemand": true,
     "files.associations": {
         "*.module": "php",
         "*.inc": "php"
     },
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
+    "git.autofetch": true,
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
     "npm.packageManager": "yarn",
     "php.suggest.basic": false,
-    "python.formatting.provider": "yapf",
     "python.pythonPath": "python3",
     "search.smartCase": true,
+    "todohighlight.defaultStyle": {
+        "color": "#FCBE0B",
+        "backgroundColor": "rgba(0, 0, 0, 0)"
+    },
+    "todohighlight.keywords": [
+        "TODO",
+        "FIXME",
+        "BUG",
+    ],
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.shell.osx": "zsh",
+    "terminal.integrated.shell.windows": "C:\\Windows\\SysNative\\wsl.exe",
     "vim.hlsearch": true,
     "vim.leader": " ",
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -36,6 +53,10 @@
     "vim.visualstar": true,
     "workbench.colorTheme": "Gruvbox Dark (Medium)",
     "workbench.editor.closeEmptyGroups": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.tabSizing": "shrink",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.feedback.visible": false,
+    "window.zoomLevel": 0,
+    "todohighlight.isEnable": true
 }
