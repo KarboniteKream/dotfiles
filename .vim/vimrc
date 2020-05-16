@@ -4,6 +4,11 @@ set nocompatible
 
 let g:dotvim = expand(has('unix') ? '~/.vim' : '~/vimfiles')
 
+" Clear the 'vimrc' autocommand group.
+augroup vimrc
+    autocmd!
+augroup END
+
 " Download vim-plug if necessary.
 if empty(glob(g:dotvim . '/autoload/plug.vim'))
     silent execute '!curl -fLo ' . g:dotvim . '/autoload/plug.vim --create-dirs '
@@ -45,7 +50,9 @@ call plug#end()
 " Install any missing plugins.
 if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
     if has('vim_starting')
-        autocmd VimEnter * PlugInstall --sync | q | source $MYVIMRC
+        augroup vimrc
+            autocmd VimEnter * PlugInstall --sync | q | source $MYVIMRC
+        augroup END
     else
         PlugInstall --sync | q | source $MYVIMRC
     endif
@@ -206,9 +213,11 @@ nnoremap q: <Nop>
 nnoremap <Leader>q :lopen<Return>
 
 " vim-racer
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap <Leader>gd <Plug>(rust-doc)
-au FileType rust nnoremap <silent> <Leader>f :RustFmt<Return>
+augroup vimrc
+    autocmd FileType rust nmap gd <Plug>(rust-def)
+    autocmd FileType rust nmap <Leader>gd <Plug>(rust-doc)
+    autocmd FileType rust nnoremap <silent> <Leader>f :RustFmt<Return>
+augroup END
 
 " vim
 let g:vim_indent_cont = shiftwidth()
@@ -274,7 +283,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " rainbow_parentheses
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-autocmd VimEnter * RainbowParentheses
+augroup vimrc
+    autocmd VimEnter * RainbowParentheses
+augroup END
 
 " undotree
 nnoremap <silent> <Leader>u :UndotreeToggle<Return>
@@ -283,7 +294,9 @@ nnoremap <silent> <Leader>u :UndotreeToggle<Return>
 let g:signify_vcs_list = ['git']
 
 " vim-dirvish
-autocmd FileType dirvish call fugitive#detect(@%)
+augroup vimrc
+    autocmd FileType dirvish call fugitive#detect(@%)
+augroup END
 
 " ale
 let g:ale_lint_on_text_changed = 0
@@ -320,16 +333,22 @@ let g:fzf_colors =
 
 " Trim trailing whitespace on save
 let s:blacklist = []
-autocmd BufWritePre * if index(s:blacklist, &ft) < 0
-    \ | :keeppatterns :%substitute/\s\+$//e
+augroup vimrc
+    autocmd BufWritePre * if index(s:blacklist, &ft) < 0
+        \ | :keeppatterns :%substitute/\s\+$//e
+augroup END
 
-autocmd FileType php set expandtab commentstring=\/\/\ %s
-autocmd FileType c set commentstring=\/\/\ %s
-autocmd FileType cpp set commentstring=\/\/\ %s
-autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+augroup vimrc
+    autocmd FileType php set expandtab commentstring=\/\/\ %s
+    autocmd FileType c set commentstring=\/\/\ %s
+    autocmd FileType cpp set commentstring=\/\/\ %s
+    autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
 
-autocmd FileType qf set nobuflisted
-autocmd TerminalOpen * set nobuflisted
+augroup vimrc
+    autocmd FileType qf set nobuflisted
+    autocmd TerminalOpen * set nobuflisted
+augroup END
 
 " }}} ----------------------------------------------------------------------------------------------
 
