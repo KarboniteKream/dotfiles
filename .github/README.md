@@ -13,6 +13,8 @@ git clone --bare https://github.com/KarboniteKream/dotfiles.git $HOME/.git-dotfi
 dotfiles checkout
 dotfiles submodule update --init
 dotfiles config --local status.showUntrackedFiles no
+
+ln -s ~/.zsh/plugins/base16-shell/scripts/base16-atelier-forest.sh .base16_theme
 ```
 
 ## Submodules
