@@ -252,7 +252,7 @@ let g:lightline = {
     \        'right': [],
     \    },
     \    'component': {
-    \        'lineinfo': "%{printf('%2d/%2d:%2d', line('.'), line('$'), col('.'))}",
+    \        'lineinfo': "%{printf('%d:%d/%d', line('.'), col('.'), line('$'))}",
     \    },
     \    'component_expand': {
     \        'buffers': 'lightline#bufferline#buffers',
