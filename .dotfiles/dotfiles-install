@@ -3,13 +3,11 @@
 # TODO: Run brew ... here.
 
 # Screenshots.
+mkdir ~/Pictures/Screenshots
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
 defaults write com.apple.screencapture name "Screenshot"
 defaults write com.apple.screencapture disable-shadow -bool true
 killall SystemUIServer
-
-# iTunes: Stop responding to media keys.
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
 
 # Keyboard.
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
@@ -34,7 +32,7 @@ defaults write -g NSFileViewer -string com.binarynights.ForkLift-3;
 defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType="public.folder";LSHandlerRoleAll="com.binarynights.ForkLift-3";}'
 
 # iTerm2.
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.config/iTerm"
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/.config/iTerm"
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 # Google Chrome.
