@@ -1,14 +1,21 @@
 [user]
-	name = Klemen Košir
-	email = klemen.kosir@kream.io
-	signingkey = 1A1E63D70E656B8B
+    name = Klemen Košir
+    email = klemen.kosir@kream.io
+    signingkey = 1A1E63D70E656B8B
+
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore_global
-	autocrlf = input
+    editor = vim
+    excludesfile = ~/.gitignore-global
+    autocrlf = input
+
 [color]
-	ui = true
-[advice]
-	statusHints = false
+    ui = true
+
+[pull]
+    ff = only
+
 [commit]
-	gpgsign = true
+    gpgsign = true
+
+[advice]
+    statusHints = false
