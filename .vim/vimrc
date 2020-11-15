@@ -293,11 +293,6 @@ nnoremap <silent> <Leader>u :UndotreeToggle<Return>
 " vim-signify
 let g:signify_vcs_list = ['git']
 
-" vim-dirvish
-augroup vimrc
-    autocmd FileType dirvish call fugitive#detect(@%)
-augroup END
-
 " ale
 let g:ale_lint_on_text_changed = 0
 let g:ale_open_list = 1
