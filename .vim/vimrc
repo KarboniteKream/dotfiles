@@ -329,9 +329,9 @@ augroup vimrc
 augroup END
 
 augroup vimrc
-  autocmd FileType php set expandtab commentstring=\/\/\ %s
   autocmd FileType c set commentstring=\/\/\ %s
   autocmd FileType cpp set commentstring=\/\/\ %s
+  autocmd FileType php set expandtab commentstring=\/\/\ %s
   autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
