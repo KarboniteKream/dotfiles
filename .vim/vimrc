@@ -1,16 +1,18 @@
-" BOOTSTRAP {{{ ------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+" BOOTSTRAP ----------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
 
 let g:dotvim = expand(has('unix') ? '~/.vim' : '~/vimfiles')
 
 " Clear the 'vimrc' autocommand group.
 augroup vimrc
-    autocmd!
+  autocmd!
 augroup END
 
 " Download vim-plug if necessary.
 if empty(glob(g:dotvim . '/autoload/plug.vim'))
-    silent execute '!curl -fLo ' . g:dotvim . '/autoload/plug.vim --create-dirs '
-        \ . '"https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"'
+  silent execute '!curl -fLo ' . g:dotvim . '/autoload/plug.vim --create-dirs '
+      \ . '"https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"'
 endif
 
 call plug#begin(g:dotvim . '/plugins')
@@ -40,20 +42,20 @@ call plug#end()
 
 " Install any missing plugins.
 if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-    if has('vim_starting')
-        augroup vimrc
-            autocmd VimEnter * PlugInstall --sync | q | source $MYVIMRC
-        augroup END
-    else
-        PlugInstall --sync | q | source $MYVIMRC
-    endif
+  if has('vim_starting')
+    augroup vimrc
+      autocmd VimEnter * PlugInstall --sync | q | source $MYVIMRC
+    augroup END
+  else
+    PlugInstall --sync | q | source $MYVIMRC
+  endif
 
-    finish
+  finish
 endif
 
-" }}} ----------------------------------------------------------------------------------------------
-
-" GENERAL {{{---------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+" GENERAL ------------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
 
 set encoding=utf-8
 scriptencoding utf-8
@@ -124,25 +126,25 @@ set background=dark
 let base16colorspace = 256
 colorscheme atelier_forest
 
-" }}} ----------------------------------------------------------------------------------------------
-
-" GUI {{{-------------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+" GUI ----------------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
 
 if has('gui_running')
-    set guiheadroom=0
-    set guioptions=cg
+  set guiheadroom=0
+  set guioptions=cg
 
-    set columns=110
-    set lines=60
+  set columns=110
+  set lines=60
 
-    if has('win32')
-        set guifont=Consolas:h8
-    endif
+  if has('win32')
+    set guifont=Consolas:h8
+  endif
 endif
 
-" }}} ----------------------------------------------------------------------------------------------
-
-" BINDINGS {{{ -------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+" BINDINGS -----------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
 
 let mapleader = ' '
 
@@ -182,7 +184,7 @@ nnoremap <silent> <Leader>p :setlocal paste!<Return>
 nnoremap <silent> <Leader>s :set spell!<Return>
 
 " Common typos.
-" Source: https://sanctum.geek.nz/arabesque/vim-command-typos
+" See: https://sanctum.geek.nz/arabesque/vim-command-typos
 command! -bang -nargs=? -complete=file E e<bang> <args>
 command! -bang -nargs=? -complete=file W w<bang> <args>
 command! -bang -nargs=? -complete=file Wq wq<bang> <args>
@@ -206,58 +208,58 @@ nnoremap <Leader>q :lopen<Return>
 
 " vim-racer
 augroup vimrc
-    autocmd FileType rust nmap gd <Plug>(rust-def)
-    autocmd FileType rust nmap <Leader>gd <Plug>(rust-doc)
-    autocmd FileType rust nnoremap <silent> <Leader>f :RustFmt<Return>
+  autocmd FileType rust nmap gd <Plug>(rust-def)
+  autocmd FileType rust nmap <Leader>gd <Plug>(rust-doc)
+  autocmd FileType rust nnoremap <silent> <Leader>f :RustFmt<Return>
 augroup END
 
 " vim
 let g:vim_indent_cont = shiftwidth()
 
-" }}} ----------------------------------------------------------------------------------------------
-
-" PLUGIN SETTINGS {{{ ------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+" PLUGIN SETTINGS ----------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
 
 " lightline-bufferline
 let g:lightline#bufferline#unnamed = '[No Name]'
 
 " lightline
 let g:lightline = {
-    \    'colorscheme': 'atelier_forest',
-    \    'active': {
-    \        'left': [
-    \            ['mode', 'paste'],
-    \            ['filename', 'readonly', 'checking', 'errors', 'warnings', 'modified']
-    \        ],
-    \        'right': [
-    \            ['lineinfo'],
-    \            ['percent'],
-    \            ['filetype', 'fileformat', 'fileencoding']
-    \        ],
-    \    },
-    \    'inactive': {
-    \        'left': [['filename', 'readonly', 'ale', 'modified']],
-    \        'right': [['lineinfo'], ['percent']],
-    \    },
-    \    'tabline': {
-    \        'left': [['buffers']],
-    \        'right': [],
-    \    },
-    \    'component': {
-    \        'lineinfo': "%{printf('%d:%d/%d', line('.'), col('.'), line('$'))}",
-    \    },
-    \    'component_expand': {
-    \        'buffers': 'lightline#bufferline#buffers',
-    \        'checking': 'lightline#ale#checking',
-    \        'errors': 'lightline#ale#errors',
-    \        'warnings': 'lightline#ale#warnings',
-    \    },
-    \    'component_type': {
-    \        'buffers': 'tabsel',
-    \        'checking': 'ok',
-    \        'errors': 'error',
-    \        'warnings': 'warning',
-    \    },
+    \   'colorscheme': 'atelier_forest',
+    \   'active': {
+    \     'left': [
+    \       ['mode', 'paste'],
+    \       ['filename', 'readonly', 'checking', 'errors', 'warnings', 'modified']
+    \     ],
+    \     'right': [
+    \       ['lineinfo'],
+    \       ['percent'],
+    \       ['filetype', 'fileformat', 'fileencoding']
+    \     ],
+    \   },
+    \   'inactive': {
+    \     'left': [['filename', 'readonly', 'ale', 'modified']],
+    \     'right': [['lineinfo'], ['percent']],
+    \   },
+    \   'tabline': {
+    \     'left': [['buffers']],
+    \     'right': [],
+    \   },
+    \   'component': {
+    \     'lineinfo': "%{printf('%d:%d/%d', line('.'), col('.'), line('$'))}",
+    \   },
+    \   'component_expand': {
+    \     'buffers': 'lightline#bufferline#buffers',
+    \     'checking': 'lightline#ale#checking',
+    \     'errors': 'lightline#ale#errors',
+    \     'warnings': 'lightline#ale#warnings',
+    \   },
+    \   'component_type': {
+    \     'buffers': 'tabsel',
+    \     'checking': 'ok',
+    \     'errors': 'error',
+    \     'warnings': 'warning',
+    \   },
     \ }
 
 let g:lightline#ale#indicator_checking = '...'
@@ -276,7 +278,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " rainbow_parentheses
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 augroup vimrc
-    autocmd VimEnter * RainbowParentheses
+  autocmd VimEnter * RainbowParentheses
 augroup END
 
 " undotree
@@ -299,51 +301,49 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nnoremap <silent> <Leader>a :ALEToggle<Return>
 
 " fzf.vim
-let g:fzf_colors =
-    \ { 'fg':      ['fg', 'Normal'],
-    \ 'bg':      ['bg', 'Normal'],
-    \ 'hl':      ['fg', 'Comment'],
-    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'hl+':     ['fg', 'Statement'],
-    \ 'info':    ['fg', 'PreProc'],
-    \ 'border':  ['fg', 'Ignore'],
-    \ 'prompt':  ['fg', 'Conditional'],
-    \ 'pointer': ['fg', 'Exception'],
-    \ 'marker':  ['fg', 'Keyword'],
-    \ 'spinner': ['fg', 'Label'],
-    \ 'header':  ['fg', 'Comment'] }
+let g:fzf_colors = {
+    \   'fg': ['fg', 'Normal'],
+    \   'bg': ['bg', 'Normal'],
+    \   'hl': ['fg', 'Comment'],
+    \   'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \   'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+    \   'hl+': ['fg', 'Statement'],
+    \   'info': ['fg', 'PreProc'],
+    \   'border': ['fg', 'Ignore'],
+    \   'prompt': ['fg', 'Conditional'],
+    \   'pointer': ['fg', 'Exception'],
+    \   'marker': ['fg', 'Keyword'],
+    \   'spinner': ['fg', 'Label'],
+    \   'header': ['fg', 'Comment'],
+    \ }
 
-" }}} ----------------------------------------------------------------------------------------------
-
-" AUTOCOMMANDS {{{ ---------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+" AUTOCOMMANDS -------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
 
 " Trim trailing whitespace on save
 let s:blacklist = []
 augroup vimrc
-    autocmd BufWritePre * if index(s:blacklist, &ft) < 0
-        \ | :keeppatterns :%substitute/\s\+$//e
+  autocmd BufWritePre * if index(s:blacklist, &ft) < 0
+      \ | :keeppatterns :%substitute/\s\+$//e
 augroup END
 
 augroup vimrc
-    autocmd FileType php set expandtab commentstring=\/\/\ %s
-    autocmd FileType c set commentstring=\/\/\ %s
-    autocmd FileType cpp set commentstring=\/\/\ %s
-    autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType php set expandtab commentstring=\/\/\ %s
+  autocmd FileType c set commentstring=\/\/\ %s
+  autocmd FileType cpp set commentstring=\/\/\ %s
+  autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 augroup vimrc
-    autocmd FileType qf set nobuflisted
-    autocmd TerminalOpen * set nobuflisted
+  autocmd FileType qf set nobuflisted
+  autocmd TerminalOpen * set nobuflisted
 augroup END
 
-" }}} ----------------------------------------------------------------------------------------------
-
-" MISCELLANEOUS {{{ --------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+" MISCELLANEOUS ------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
 
 let php_htmlInStrings = 1
 let php_sql_query = 1
-
-" }}} ----------------------------------------------------------------------------------------------
-
-" vim:foldmethod=marker
