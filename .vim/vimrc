@@ -165,7 +165,7 @@ noremap K <Nop>
 nnoremap Q <Nop>
 
 " Buffers.
-nnoremap <Leader>b :ls<Return>:buffer<Space>
+nnoremap <Leader>b :ls<Return>:b<Space>
 nnoremap <silent> <Left> :bprevious<Return>
 nnoremap <silent> <Right> :bnext<Return>
 nnoremap <silent> <Backspace> <C-^>
