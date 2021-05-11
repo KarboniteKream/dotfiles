@@ -1,4 +1,5 @@
-source "gpg -d ~/.mutt/credentials |"
+source ~/.mutt/colors
+source "gpg -q -d ~/.mutt/credentials |"
 
 set charset = UTF-8
 set editor = "vim"

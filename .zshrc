@@ -44,3 +44,4 @@ source /usr/local/opt/fzf/shell/key-bindings.zsh
 
 alias diff="colordiff"
 alias dotfiles="git --git-dir=$HOME/.git-dotfiles --work-tree=$HOME"
+alias mutt="TERM=screen-256color mutt"
