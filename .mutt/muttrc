@@ -1,0 +1,28 @@
+source "gpg -d ~/.mutt/credentials |"
+
+set charset = UTF-8
+set editor = "vim"
+
+set header_cache = "~/.cache/mutt"
+set message_cachedir = "~/.cache/mutt"
+
+set sort = "threads"
+set sort_aux = "reverse-last-date-received"
+
+set realname = "Klemen Košir"
+set from = $my_user
+set hostname = $my_hostname
+set use_from
+unset use_domain
+
+set folder = "imaps://imap.gmail.com"
+set imap_user = $my_user
+set imap_pass = $my_pass
+set spoolfile = "+INBOX"
+
+set smtp_url = "smtps://$my_user@smtp.gmail.com"
+set smtp_pass = $my_pass
+set ssl_force_tls = yes
+unset record
+
+bind index G imap-fetch-mail
