@@ -1,3 +1,7 @@
 set commentary
 set ideajoin
 set ideavimsupport=
+set incsearch
+
+sethandler <C-J> a:ide
+sethandler <C-T> a:ide
