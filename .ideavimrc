@@ -3,5 +3,8 @@ set ideajoin
 set ideavimsupport=
 set incsearch
 
-sethandler <C-J> a:ide
-sethandler <C-T> a:ide
+sethandler <C-J> n:ide
+sethandler <C-T> n:ide
+
+sethandler <C-A> n:vim
+sethandler <C-R> n:vim

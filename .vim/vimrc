@@ -16,6 +16,7 @@ if empty(glob(g:dotvim . '/autoload/plug.vim'))
 endif
 
 call plug#begin(g:dotvim . '/plugins')
+Plug 'bronson/vim-visual-star-search'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/Recover.vim'
 Plug 'editorconfig/editorconfig-vim'
