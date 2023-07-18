@@ -19,6 +19,7 @@ call plug#begin(g:dotvim . '/plugins')
 Plug 'bronson/vim-visual-star-search'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/Recover.vim'
+Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -37,7 +38,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
 call plug#end()
 
 " Install any missing plugins.
@@ -295,6 +295,10 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 nnoremap <silent> <Leader>a :ALEToggle<Return>
+
+augroup vimrc
+  autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 
 " fzf.vim
 nnoremap <C-p> :FZF<Return>
