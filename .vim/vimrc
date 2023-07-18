@@ -36,6 +36,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 call plug#end()
@@ -120,6 +121,8 @@ set splitright
 " Reduce key code delay.
 set ttimeoutlen=10
 
+set sessionoptions-=options,folds
+
 " --------------------------------------------------------------------------------------------------
 " COLORSCHEME --------------------------------------------------------------------------------------
 " --------------------------------------------------------------------------------------------------
@@ -187,6 +190,7 @@ nnoremap <Leader>ez :edit ~/.zshrc<Return>
 
 " Sourcing.
 nnoremap <silent> <Leader>\ :source $MYVIMRC<Return>
+nnoremap <silent> <Leader>ss :call LoadScratch(1)<Return>
 
 " Toggles.
 nnoremap <silent> <Leader>l :set list!<Return>
@@ -340,9 +344,27 @@ augroup vimrc
   autocmd TerminalOpen * set nobuflisted
 augroup END
 
+augroup vimrc
+  autocmd GUIEnter * nested call LoadScratch(0)
+augroup END
+
 " --------------------------------------------------------------------------------------------------
 " MISCELLANEOUS ------------------------------------------------------------------------------------
 " --------------------------------------------------------------------------------------------------
 
 let php_htmlInStrings = 1
 let php_sql_query = 1
+
+function! LoadScratch(force)
+  if argc() && !a:force
+    return
+  endif
+
+  let l:scratch_path = g:dotvim . '/sessions/scratch.vim'
+
+  if filereadable(l:scratch_path)
+    execute 'source ' . l:scratch_path
+  elseif a:force
+    echo 'Unable to load ' . l:scratch_path
+  endif
+endfunction
