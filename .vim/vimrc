@@ -120,12 +120,19 @@ set splitright
 " Reduce key code delay.
 set ttimeoutlen=10
 
+" --------------------------------------------------------------------------------------------------
+" COLORSCHEME --------------------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+
 syntax enable
 filetype plugin indent on
 
 set background=dark
 let base16colorspace = 256
 colorscheme atelier_forest
+
+let g:markdown_fenced_languages = ['bash=sh']
+let g:markdown_syntax_conceal = 0
 
 " --------------------------------------------------------------------------------------------------
 " GUI ----------------------------------------------------------------------------------------------
@@ -140,6 +147,8 @@ if has('gui_running')
 
   if has('win32')
     set guifont=Consolas:h8
+  elseif has('mac')
+    set guifont=Menlo:h13
   endif
 endif
 
@@ -175,9 +184,9 @@ nnoremap <silent> <Backspace> <C-^>
 nnoremap <Leader>ev :edit $MYVIMRC<Return>
 nnoremap <Leader>eb :edit ~/.bashrc<Return>
 nnoremap <Leader>ez :edit ~/.zshrc<Return>
-nnoremap <silent> <Leader>\ :source $MYVIMRC<Return>
 
-nnoremap <silent> <Leader><Leader> :nohlsearch<Return>
+" Sourcing.
+nnoremap <silent> <Leader>\ :source $MYVIMRC<Return>
 
 " Toggles.
 nnoremap <silent> <Leader>l :set list!<Return>
@@ -189,6 +198,7 @@ nnoremap <silent> <Leader>s :set spell!<Return>
 command! -bang -nargs=? -complete=file E e<bang> <args>
 command! -bang -nargs=? -complete=file W w<bang> <args>
 command! -bang -nargs=? -complete=file Wq wq<bang> <args>
+command! -bang -nargs=? -complete=file Bw bw<bang> <args>
 command! -bang Q q<bang>
 
 " Clipboard.
@@ -206,6 +216,7 @@ nnoremap <Leader>v `[v`]
 nnoremap Y y$
 nnoremap q: <Nop>
 nnoremap <Leader>q :lopen<Return>
+nnoremap <silent> <Leader><Leader> :nohlsearch<Return>
 
 " vim-racer
 augroup vimrc
@@ -311,8 +322,8 @@ nnoremap <Leader>t :Tags<Return>
 " Trim trailing whitespace on save
 let s:blacklist = []
 augroup vimrc
-  autocmd BufWritePre * if index(s:blacklist, &ft) < 0
-      \ | :keeppatterns :%substitute/\s\+$//e
+  autocmd BufWritePre * if index(s:blacklist, &ft) < 0 |
+      \ :keeppatterns :%substitute/\s\+$//e
 augroup END
 
 augroup vimrc
@@ -321,6 +332,7 @@ augroup vimrc
   autocmd FileType php set expandtab commentstring=\/\/\ %s
   autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 augroup vimrc
