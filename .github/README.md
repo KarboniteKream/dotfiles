@@ -12,7 +12,7 @@ function dotfiles() {
 git clone --bare git@github.com:KarboniteKream/dotfiles.git $HOME/.git-dotfiles
 dotfiles checkout
 dotfiles submodule update --init
-dotfiles config --local status.showUntrackedFiles no
+dotfiles config status.showUntrackedFiles no
 
 ln -s ~/.zsh/plugins/base16-shell/scripts/base16-atelier-forest.sh .base16_theme
 ```

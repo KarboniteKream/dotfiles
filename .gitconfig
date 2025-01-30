@@ -7,6 +7,19 @@
     editor = vim
     excludesfile = ~/.gitignore-global
     autocrlf = input
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
 
 [color]
     ui = true
