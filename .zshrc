@@ -24,6 +24,7 @@ plugins=(
 
 source "$ZSH/oh-my-zsh.sh"
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+source "$HOME/.cargo/env"
 
 alias diff="colordiff"
 alias dotfiles="git --git-dir=$HOME/.git-dotfiles --work-tree=$HOME"
