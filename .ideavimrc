@@ -1,10 +1,15 @@
 set commentary
+set hlsearch
 set ideajoin
 set ideavimsupport=
 set incsearch
+set scrolloff=5
 
 sethandler <C-J> n:ide
 sethandler <C-T> n:ide
 
 sethandler <C-A> n:vim
 sethandler <C-R> n:vim
+
+let mapleader = ' '
+nnoremap <silent> <Leader><Leader> :nohlsearch<Return>

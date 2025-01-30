@@ -21,6 +21,7 @@ Plug 'cespare/vim-toml'
 Plug 'chrisbra/Recover.vim'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'ericbn/vim-solarized'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -36,9 +37,11 @@ Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " Install any missing plugins.
@@ -130,9 +133,31 @@ set sessionoptions-=options,folds
 syntax enable
 filetype plugin indent on
 
-set background=dark
-let base16colorspace = 256
-colorscheme atelier_forest
+" FIXME: Some stuff like `:help function` is only colored after second source.
+
+if has('gui_running')
+  augroup vimrc
+    autocmd ColorScheme solarized highlight Todo gui=NONE
+    autocmd ColorScheme solarized highlight Comment gui=NONE
+
+    autocmd ColorScheme solarized highlight SignColumn guibg=#eee8d5
+
+    autocmd ColorScheme solarized highlight markdownBold gui=bold
+    " FIXME: Broken on vim-solarized? It needs markdownCodeBlock.
+    autocmd ColorScheme solarized highlight markdownCode guifg=#2aa198
+    autocmd ColorScheme solarized highlight markdownCodeBlock guifg=#2aa198
+    autocmd ColorScheme solarized highlight link markdownError NONE
+    autocmd ColorScheme solarized highlight markdownHeadingDelimiter guifg=#b58900
+    autocmd ColorScheme solarized highlight link markdownRule Todo
+  augroup END
+
+  set background=light
+  colorscheme solarized
+else
+  set background=dark
+  let base16colorspace = 256
+  colorscheme atelier_forest
+endif
 
 let g:markdown_fenced_languages = ['bash=sh']
 let g:markdown_syntax_conceal = 0
@@ -241,7 +266,6 @@ let g:lightline#bufferline#unnamed = '[No Name]'
 
 " lightline
 let g:lightline = {
-    \   'colorscheme': 'atelier_forest',
     \   'active': {
     \     'left': [
     \       ['mode', 'paste'],
@@ -278,6 +302,13 @@ let g:lightline = {
     \   },
     \ }
 
+if has('gui_running')
+  " TODO: Set color of right side to match left.
+  let g:lightline.colorscheme = 'solarized'
+else
+  let g:lightline.colorscheme = 'atelier_forest'
+endif
+
 let g:lightline#ale#indicator_checking = '...'
 
 call lightline#init()
@@ -288,9 +319,11 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " rainbow_parentheses
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-augroup vimrc
-  autocmd VimEnter * RainbowParentheses
-augroup END
+" FIXME: This breaks vimwiki link conceal.
+" https://github.com/vimwiki/vimwiki/issues/1062
+" augroup vimrc
+"   autocmd VimEnter * RainbowParentheses
+" augroup END
 
 " undotree
 nnoremap <silent> <Leader>u :UndotreeToggle<Return>
@@ -318,6 +351,24 @@ augroup END
 " fzf.vim
 nnoremap <C-p> :FZF<Return>
 nnoremap <Leader>t :Tags<Return>
+
+if !has('gui_running')
+  let g:fzf_colors = {
+      \   'fg': ['fg', 'Normal'],
+      \   'bg': ['bg', 'Normal'],
+      \   'hl': ['fg', 'Comment'],
+      \   'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \   'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+      \   'hl+': ['fg', 'Statement'],
+      \   'info': ['fg', 'PreProc'],
+      \   'border': ['fg', 'Ignore'],
+      \   'prompt': ['fg', 'Conditional'],
+      \   'pointer': ['fg', 'Exception'],
+      \   'marker': ['fg', 'Keyword'],
+      \   'spinner': ['fg', 'Label'],
+      \   'header': ['fg', 'Comment'],
+      \ }
+endif
 
 " --------------------------------------------------------------------------------------------------
 " AUTOCOMMANDS -------------------------------------------------------------------------------------
