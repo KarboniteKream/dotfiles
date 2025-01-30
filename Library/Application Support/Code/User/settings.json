@@ -11,7 +11,6 @@
     "eslint.packageManager": "yarn",
     "explorer.autoReveal": false,
     "explorer.openEditors.visible": 0,
-    "explorer.sortOrder": "mixed",
     "extensions.autoUpdate": false,
     "extensions.showRecommendationsOnlyOnDemand": true,
     "files.associations": {
@@ -51,12 +50,14 @@
         }
     ],
     "vim.visualstar": true,
-    "workbench.colorTheme": "Gruvbox Dark (Medium)",
+    "workbench.colorTheme": "Solarized Light",
     "workbench.editor.closeEmptyGroups": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.tabSizing": "shrink",
     "workbench.startupEditor": "none",
     "workbench.statusBar.feedback.visible": false,
-    "window.zoomLevel": 0,
-    "todohighlight.isEnable": true
+    "todohighlight.isEnable": true,
+    "window.zoomLevel": 1,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false
 }
