@@ -1,0 +1,6 @@
+news.version=3.4.1
+
+data.location=~/.task
+include solarized-dark-256.theme
+
+uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING
