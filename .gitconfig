@@ -1,11 +1,11 @@
 [user]
     name = Klemen Košir
     email = klemen.kosir@kream.io
-    signingkey = 1A1E63D70E656B8B
+    signingKey = 1A1E63D70E656B8B
 
 [core]
     editor = vim
-    excludesfile = ~/.gitignore-global
+    excludesFile = ~/.gitignore-global
     autocrlf = input
     pager = delta
 
@@ -16,7 +16,7 @@
     navigate = true
 
 [merge]
-    conflictstyle = diff3
+    conflictStyle = zdiff3
 
 [diff]
     colorMoved = default
@@ -28,7 +28,8 @@
     ff = only
 
 [commit]
-    gpgsign = true
+    gpgSign = true
 
 [advice]
     statusHints = false
+    skippedCherryPicks = false
