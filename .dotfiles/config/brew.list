@@ -7,6 +7,7 @@ coreutils
 docker
 docker-buildx
 docker-compose
+docker-credential-helper
 dos2unix
 duti
 dyff
@@ -37,14 +38,14 @@ python
 qemu
 ranger
 ripgrep
+ruby
 shellcheck
 task
 taskwarrior-tui
-tldr
+tlrc
 tmux
 tokei
 tree
-vim
 wget
 yq
 yt-dlp
@@ -62,13 +63,12 @@ firefox
 fluor
 forklift
 google-chrome
-gpg-suite
 hex-fiend
 imhex
 iterm2
 jetbrains-toolbox
 keepingyouawake
-macvim
+homebrew/cask/macvim
 microsoft-office
 notion
 obs
@@ -88,4 +88,6 @@ temurin@17
 thunderbird
 viscosity
 visual-studio-code
-wireshark
+wireguard-tools
+homebrew/cask/wireshark
+xiv-on-mac

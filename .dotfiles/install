@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # TODO: Run brew ... here.
 
@@ -29,8 +29,8 @@ defaults write com.apple.PowerChime ChimeOnAllHardware -bool true
 open /System/Library/CoreServices/PowerChime.app
 
 # ForkLift.
-defaults write -g NSFileViewer -string com.binarynights.ForkLift-3;
-defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType="public.folder";LSHandlerRoleAll="com.binarynights.ForkLift-3";}'
+# defaults write -g NSFileViewer -string com.binarynights.ForkLift-3;
+# defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType="public.folder";LSHandlerRoleAll="com.binarynights.ForkLift-3";}'
 
 # iTerm2.
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/.config/iTerm"
