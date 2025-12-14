@@ -48,3 +48,9 @@ killall Dock
 
 defaults write com.apple.finder QuitMenuItem -bool true
 killall Finder
+
+# Visual Studio Code
+mkdir -p "$HOME/Library/Application Support/Code/User"
+cd "$HOME/Library/Application Support/Code/User"
+ln -s "$HOME/.config/Code/User/keybindings.json" keybindings.json
+ln -s "$HOME/.config/Code/User/settings.json" settings.json

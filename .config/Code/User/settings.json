@@ -59,5 +59,6 @@
     "todohighlight.isEnable": true,
     "window.zoomLevel": 1,
     "window.commandCenter": false,
-    "workbench.layoutControl.enabled": false
+    "workbench.layoutControl.enabled": false,
+    "python.analysis.typeCheckingMode": "basic"
 }
