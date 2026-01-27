@@ -17,21 +17,26 @@ void toggle_kana(keyrecord_t *record) {
         return;
     }
 
-    if (detected_host_os() == OS_WINDOWS) {
+    os_variant_t detected_os = detected_host_os();
+    if (detected_os == OS_WINDOWS) {
         SEND_STRING(SS_LALT("`"));
-    } else {
+    } else if (detected_os == OS_LINUX) {
+        tap_code16(LCTL(RSFT(KC_SCRL)));
+    } else if (detected_os == OS_MACOS) {
         tap_code(KC_CAPS);
     }
 }
 
 bool process_detected_host_os_user(os_variant_t detected_os) {
-    keymap_config.raw = eeconfig_read_keymap();
+    eeconfig_read_keymap(&keymap_config);
 
-    bool is_apple = (detected_os == OS_MACOS || detected_os == OS_IOS);
-    keymap_config.swap_lalt_lgui = is_apple;
-    keymap_config.swap_ralt_rgui = is_apple;
+    bool swap_alt_gui = (detected_os == OS_MACOS || detected_os == OS_IOS);
+    if (keymap_config.swap_lalt_lgui != swap_alt_gui) {
+        keymap_config.swap_lalt_lgui = swap_alt_gui;
+        keymap_config.swap_ralt_rgui = swap_alt_gui;
 
-    eeconfig_update_keymap(keymap_config.raw);
+        eeconfig_update_keymap(&keymap_config);
+    }
 
     return true;
 }
@@ -57,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |Shift   |Z  |X  |C  |V  |B  |N  |M  |,  |.  |/  |Shift |Fn |
      * |-----------------------------------------------------------|
-     * |Ctrl|Meta|Alt |Space     |Fn  |Space   |Kana|    |    |    |
+     * |Ctrl|Meta|Alt |Space     |Fn  |Space   |Kana|    |    |Ctrl|
      * '-----------------------------------------------------------'
      */
     [_BL] = LAYOUT_60_ansi_split_space_rshift(
@@ -65,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
         KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_ENT,
         KC_LSFT,          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, MO(_FL),
-        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC,                    MO(_FL), KC_SPC,                    MK_KANA, XXXXXXX, XXXXXXX, XXXXXXX
+        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC,                    MO(_FL), KC_SPC,                    MK_KANA, XXXXXXX, XXXXXXX, KC_RCTL
     ),
 
     /* Arrow layer.
@@ -106,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_DEL,
         MK_KANA, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PSCR, KC_UP,   _______, _______,
         KC_CAPS, KC_VOLD, KC_MUTE, KC_VOLU, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_LEFT, KC_RGHT, _______,
-        _______,          KC_SCRL, KC_PAUS, _______, _______, _______, _______, _______, _______, _______, KC_DOWN, _______, _______,
+        _______,          KC_BRID, KC_BRIU, _______, _______, _______, _______, _______, _______, _______, KC_DOWN, _______, _______,
         _______, _______, _______, _______,                   _______, _______,                   _______, _______, MO(_RL), _______
     ),
 
