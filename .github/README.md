@@ -14,7 +14,7 @@ dotfiles checkout
 dotfiles submodule update --init
 dotfiles config status.showUntrackedFiles no
 
-ln -s ~/.zsh/plugins/base16-shell/scripts/base16-atelier-forest.sh .base16_theme
+ln -s ~/.zsh/external/base16-shell/scripts/base16-atelier-forest.sh .base16_theme
 ```
 
 ## Submodules
