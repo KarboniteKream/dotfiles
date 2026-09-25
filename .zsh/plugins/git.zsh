@@ -129,7 +129,7 @@ alias gwt="git worktree"
 
 # Add the 'upstream' remote, assuming this is a fork.
 function garu() {
-  local repository="$(basename "$(git remote get-url origin)")"
+  local repository="${$(git remote get-url origin):t}"
   git remote add upstream "git@github.com:$1/$repository" || return
   git remote set-url upstream --push "NO-PUSH"
 }

@@ -1,5 +1,5 @@
 # Toggle 'sudo' for the current (or previous) command.
-__sudo_command_line() {
+function __sudo_command_line() {
   # Get the previous command, if the buffer is empty.
   if [[ -z "$BUFFER" ]]; then
     BUFFER="$(fc -ln -1)"
@@ -22,6 +22,6 @@ __sudo_command_line() {
 zle -N __sudo_command_line
 
 # Bind to [Esc][Esc].
-bindkey -M emacs "\e\e" __sudo_command_line
-bindkey -M vicmd "\e\e" __sudo_command_line
-bindkey -M viins "\e\e" __sudo_command_line
+bindkey -M emacs '\e\e' __sudo_command_line
+bindkey -M vicmd '\e\e' __sudo_command_line
+bindkey -M viins '\e\e' __sudo_command_line

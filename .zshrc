@@ -7,10 +7,6 @@ CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
 
-plugins=(
-  colored-man-pages
-)
-
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.zsh/init.zsh"
 
