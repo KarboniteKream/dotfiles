@@ -3,7 +3,7 @@ function __git_no_lock() {
   GIT_OPTIONAL_LOCKS="0" command git "$@"
 }
 
-# Output the repository status for the prompt.
+# Print the repository status for the prompt.
 function __git_prompt_info() {
   local -a info
   info=("${(@f)$(__git_no_lock rev-parse --git-dir --abbrev-ref HEAD 2>/dev/null)}")
@@ -41,10 +41,10 @@ function __git_prompt_info() {
   fi
 
   # Sanitize '%' in refs to prevent prompt injection.
-  echo -n "%F{red}${ref//\%/%%}%f${dirty}"
+  print -n "%F{red}${ref//\%/%%}%f${dirty}"
 }
 
-# Output the name of the current branch.
+# Print the name of the current branch.
 function __git_current_branch() {
   local ref
 
@@ -54,15 +54,15 @@ function __git_current_branch() {
   fi
 
   if [[ -n "$ref" ]]; then
-    echo "$ref"
+    print "$ref"
   fi
 }
 
-# Output the name of the main branch.
+# Print the name of the main branch.
 function __git_main_branch() {
   # Early return if outside of a Git repository.
   if ! __git_no_lock rev-parse --git-dir &>/dev/null; then
-    return
+    return 0
   fi
 
   local ref remote
@@ -70,7 +70,7 @@ function __git_main_branch() {
   # Try the most common branch names.
   for ref in refs/{heads,remotes/{origin,upstream}}/{master,main,trunk}; do
     if __git_no_lock show-ref -q --verify "$ref"; then
-      echo "${ref:t}"
+      print "${ref:t}"
       return 0
     fi
   done
@@ -80,13 +80,13 @@ function __git_main_branch() {
     ref="$(__git_no_lock rev-parse --abbrev-ref "$remote/HEAD" 2>/dev/null)"
 
     if [[ "$ref" == "$remote"/* ]]; then
-      echo "${ref#"$remote/"}"
+      print "${ref#"$remote/"}"
       return 0
     fi
   done
 
   # If no main branch was found, fall back to master and return error.
-  echo "master"
+  print "master"
   return 1
 }
 

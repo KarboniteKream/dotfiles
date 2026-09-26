@@ -4,7 +4,7 @@ function __load_plugin() {
   if [[ -s "$plugin_path" ]]; then
     source "$plugin_path"
   else
-    echo >&2 "Missing external plugin: ${1%%/*}"
+    print -u2 "Missing external plugin: ${1%%/*}"
   fi
 }
 

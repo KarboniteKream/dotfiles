@@ -11,6 +11,7 @@ typeset -g ZSH="$HOME/.zsh"
 source "$ZSH/plugins/git.zsh"
 source "$ZSH/plugins/man.zsh"
 source "$ZSH/plugins/sudo.zsh"
+source "$ZSH/plugins/vi-mode.zsh"
 
 # --------------------------------------------------------------------------------------------------
 # EXTERNAL -----------------------------------------------------------------------------------------

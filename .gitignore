@@ -1,1 +1,3 @@
-.git-dotfiles
+.git-dotfiles/
+.ssh/id_*
+.zsh_history
