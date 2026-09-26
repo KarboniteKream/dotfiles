@@ -1,5 +1,4 @@
 autoload -Uz add-zle-hook-widget
-autoload -Uz edit-command-line
 
 # Reduce the key timeout after pressing Esc to 100 ms.
 KEYTIMEOUT=10
@@ -53,12 +52,10 @@ bindkey -v
 # Restore convenient shortcuts from Emacs.
 bindkey -M viins '^A' beginning-of-line
 bindkey -M viins '^E' end-of-line
-bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M viins '^W' backward-kill-word
 bindkey -M viins '^U' kill-whole-line
 bindkey -M viins '^P' up-history
 bindkey -M viins '^N' down-history
-bindkey -M viins '^?' backward-delete-char
 
 # Use non-beeping Emacs movement.
 bindkey -M vicmd '^[[D' backward-char
@@ -69,8 +66,3 @@ bindkey -M viins '^[[D' backward-char
 bindkey -M viins '^[OD' backward-char
 bindkey -M viins '^[[C' forward-char
 bindkey -M viins '^[OC' forward-char
-
-# Use Alt+v to open the buffer in '$EDITOR'.
-zle -N edit-command-line
-bindkey -M vicmd '\ev' edit-command-line
-bindkey -M viins '\ev' edit-command-line

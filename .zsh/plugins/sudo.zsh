@@ -7,7 +7,7 @@ function __sudo_command_line() {
 
   # Preserve leading whitespace.
   local whitespace="${BUFFER%%[![:space:]]*}"
-  BUFFER="${BUFFER#$whitespace}"
+  BUFFER="${BUFFER#"$whitespace"}"
 
   if [[ "$BUFFER" == "sudo "* ]]; then
     BUFFER="${BUFFER#sudo }"
@@ -22,6 +22,4 @@ function __sudo_command_line() {
 zle -N __sudo_command_line
 
 # Bind to Alt+s.
-bindkey -M emacs '\es' __sudo_command_line
-bindkey -M vicmd '\es' __sudo_command_line
-bindkey -M viins '\es' __sudo_command_line
+__bindkey '\es' __sudo_command_line

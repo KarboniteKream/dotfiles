@@ -2,7 +2,6 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 export PATH="$HOME/.bin:$HOME/.cargo/bin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/sbin:$PATH"
-export EDITOR="vim"
 
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_DEFAULT_OPTS="

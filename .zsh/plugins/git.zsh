@@ -76,7 +76,7 @@ function __git_main_branch() {
   done
 
   # Try to get the main branch from remote HEAD symbolic refs.
-  for remote in origin upstream; do
+  for remote in "origin" "upstream"; do
     ref="$(__git_no_lock rev-parse --abbrev-ref "$remote/HEAD" 2>/dev/null)"
 
     if [[ "$ref" == "$remote"/* ]]; then
@@ -116,7 +116,7 @@ alias grh="git reset"
 alias grhc="git reset --soft HEAD~1"
 alias grset="git remote set-url"
 # Jump to the repository root.
-alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
+alias grt='cd "$(git rev-parse --show-toplevel || print -r -- .)"'
 alias grv="git remote --verbose"
 alias gsm="git submodule"
 alias gst="git status"
