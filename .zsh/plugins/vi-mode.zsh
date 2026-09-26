@@ -60,6 +60,16 @@ bindkey -M viins '^P' up-history
 bindkey -M viins '^N' down-history
 bindkey -M viins '^?' backward-delete-char
 
+# Use non-beeping Emacs movement.
+bindkey -M vicmd '^[[D' backward-char
+bindkey -M vicmd '^[OD' backward-char
+bindkey -M vicmd '^[[C' forward-char
+bindkey -M vicmd '^[OC' forward-char
+bindkey -M viins '^[[D' backward-char
+bindkey -M viins '^[OD' backward-char
+bindkey -M viins '^[[C' forward-char
+bindkey -M viins '^[OC' forward-char
+
 # Use Alt+v to open the buffer in '$EDITOR'.
 zle -N edit-command-line
 bindkey -M vicmd '\ev' edit-command-line
