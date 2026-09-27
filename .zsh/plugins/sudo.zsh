@@ -22,4 +22,4 @@ function __sudo_command_line() {
 zle -N __sudo_command_line
 
 # Bind to Alt+s.
-__bindkey '\es' __sudo_command_line
+__bind_key '\es' __sudo_command_line

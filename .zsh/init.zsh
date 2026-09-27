@@ -16,6 +16,7 @@ fpath=(
 )
 
 source "$ZSH/lib/env.zsh"
+source "$ZSH/lib/functions.zsh"
 source "$ZSH/lib/options.zsh"
 source "$ZSH/lib/history.zsh"
 source "$ZSH/lib/terminal.zsh"
@@ -25,6 +26,7 @@ source "$ZSH/lib/key-bindings.zsh"
 # PLUGINS & THEME ----------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------
 
+source "$ZSH/plugins/fzf.zsh"
 source "$ZSH/plugins/git.zsh"
 source "$ZSH/plugins/man.zsh"
 source "$ZSH/plugins/sudo.zsh"
