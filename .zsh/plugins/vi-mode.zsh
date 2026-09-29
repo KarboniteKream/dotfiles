@@ -10,41 +10,15 @@ function __vi_mode_prompt_info() {
   fi
 }
 
-# Set the cursor style based on current Vi mode.
-function __vi_mode_set_cursor() {
-  if [[ "$KEYMAP" == "vicmd" ]]; then
-    # Solid block.
-    print -n $'\e[2 q'
-  else
-    # Thin line.
-    print -n $'\e[6 q'
-  fi
-}
-
 # Hook called whenever the active keymap changes.
 function __vi_mode_keymap_select() {
-  __vi_mode_set_cursor
+  # Redraw the prompt, to show the Vi mode.
   zle reset-prompt
 }
 
-# Hook called whenever Zsh is ready to accept user input.
-function __vi_mode_line_init() {
-  __vi_mode_set_cursor
-}
-
-# Hook called whenever we pass control back to Zsh.
-function __vi_mode_line_finish() {
-  # Reset the cursor style to default.
-  print -n $'\e[0 q'
-}
-
 zle -N __vi_mode_keymap_select
-zle -N __vi_mode_line_init
-zle -N __vi_mode_line_finish
 
 add-zle-hook-widget keymap-select __vi_mode_keymap_select
-add-zle-hook-widget line-init __vi_mode_line_init
-add-zle-hook-widget line-finish __vi_mode_line_finish
 
 # Activate Vi mode.
 bindkey -v
