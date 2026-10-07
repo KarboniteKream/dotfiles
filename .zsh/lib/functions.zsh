@@ -9,8 +9,8 @@ function __require_cmd() {
     fi
   done
 
-  if [[ ${#missing} -gt 0 ]]; then
-    print -u2 "Missing required commands: ${(j:, :)missing}"
+  if [[ "${#missing}" -gt 0 ]]; then
+    print -u2 "Missing required commands: ${(j:, :)missing}."
     return 1
   fi
 }

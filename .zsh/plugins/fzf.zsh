@@ -19,5 +19,6 @@ if [[ -f "/usr/share/fzf/shell/key-bindings.zsh" ]]; then
 elif [[ -f "/opt/homebrew/opt/fzf/shell/key-bindings.zsh" ]]; then
   source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 else
-  eval "$(fzf --zsh)"
+  print -u2 "Unable to locate fzf key bindings."
+  return 1
 fi

@@ -10,7 +10,7 @@ function __sudo_command_line() {
   BUFFER="${BUFFER#"$whitespace"}"
 
   if [[ "$BUFFER" == "sudo "* ]]; then
-    BUFFER="${BUFFER#sudo }"
+    BUFFER="${BUFFER#"sudo "}"
   else
     BUFFER="sudo $BUFFER"
   fi

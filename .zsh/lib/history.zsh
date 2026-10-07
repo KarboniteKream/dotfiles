@@ -1,8 +1,8 @@
 HISTFILE="$HOME/.zsh_history"
 # Number of entries persisted to disk.
-SAVEHIST=100000
+SAVEHIST="100000"
 # Number of entries to keep in memory.
-HISTSIZE=100000
+HISTSIZE="100000"
 
 # Save timestamps and duration to the history file.
 setopt extended_history
@@ -24,7 +24,7 @@ setopt share_history
 
 # Print history entries with timestamps.
 function history() {
-  if [[ "$#" == "0" ]]; then
+  if [[ "$#" == 0 ]]; then
     builtin fc -i -l 1
   else
     builtin fc -i -l "$@"

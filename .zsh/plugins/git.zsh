@@ -16,7 +16,7 @@ function __git_prompt_info() {
   fi
 
   local ref="$info[2]"
-  if [[ "$unborn" == "1" ]]; then
+  if [[ "$unborn" == 1 ]]; then
     # Find the pending branch name.
     if ! ref="$(__git_no_lock symbolic-ref --short HEAD 2>/dev/null)"; then
       return 0
@@ -32,7 +32,7 @@ function __git_prompt_info() {
 
   # Check for dirty status, ignoring untracked files.
   local dirty=""
-  if [[ "$unborn" == "1" ]]; then
+  if [[ "$unborn" == 1 ]]; then
     if ! __git_no_lock diff --cached --quiet 2>/dev/null; then
       dirty=" %F{yellow}~%f"
     fi

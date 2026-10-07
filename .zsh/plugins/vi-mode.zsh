@@ -1,7 +1,7 @@
 autoload -Uz add-zle-hook-widget
 
 # Reduce the key timeout after pressing Esc to 100 ms.
-KEYTIMEOUT=10
+KEYTIMEOUT="10"
 
 # Print the Vi mode for the prompt.
 function __vi_mode_prompt_info() {

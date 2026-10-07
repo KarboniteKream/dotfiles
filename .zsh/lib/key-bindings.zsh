@@ -23,6 +23,9 @@ fi
 # Activate Emacs mode.
 bindkey -e
 
+# Match Vim behavior for word boundaries.
+WORDCHARS='*?_.[]~=&;!#$%^(){}<>'
+
 # Line navigation with Home/End.
 __bind_key '^[[H' beginning-of-line
 __bind_key '^[[F' end-of-line
@@ -33,7 +36,7 @@ __bind_key "${terminfo[kend]}" end-of-line
 __bind_key "${terminfo[kpp]}" up-line-or-history
 __bind_key "${terminfo[knp]}" down-line-or-history
 
-# Word navigation with Ctrl+{Left,Right} and Alt+{b,f}.
+# Word navigation with Ctrl+{Left,Right} and Alt+{B,F}.
 __bind_key '^[[1;5D' backward-word
 __bind_key '^[[1;5C' forward-word
 __bind_key '\eb' backward-word

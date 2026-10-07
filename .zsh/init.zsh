@@ -4,17 +4,6 @@
 
 typeset -g ZSH="$HOME/.zsh"
 
-typeset -g ZSH_CACHE_DIR="$ZSH/cache"
-[[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
-typeset -g SHORT_HOST="${SHORT_HOST:-${(%):-%m}}"
-
-typeset -gU fpath
-fpath=(
-  "$ZSH/completions"
-  "$ZSH_CACHE_DIR/completions"
-  $fpath
-)
-
 source "$ZSH/lib/env.zsh"
 source "$ZSH/lib/functions.zsh"
 source "$ZSH/lib/options.zsh"
@@ -38,10 +27,7 @@ source "$ZSH/themes/kream.zsh"
 # COMPLETION & ALIASES -----------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------
 
-autoload -Uz compinit
-compinit -i -d "$HOME/.zcompdump-$SHORT_HOST-$ZSH_VERSION"
-source "$HOME/.oh-my-zsh/lib/completion.zsh"
-
+source "$ZSH/lib/completion.zsh"
 source "$ZSH/lib/aliases.zsh"
 
 # --------------------------------------------------------------------------------------------------
@@ -55,7 +41,7 @@ function __load_plugin() {
     source "$plugin_path"
     return 0
   else
-    print -u2 "Missing external plugin: ${1%%/*}"
+    print -u2 "Missing external plugin: ${1%%/*}."
     return 1
   fi
 }
