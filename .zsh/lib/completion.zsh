@@ -90,14 +90,15 @@ zstyle ":completion:*" matcher-list "r:|=*" "l:|=* r:|=*"
 
 # Prioritize local directories before directory stack history.
 zstyle ":completion:*:cd:*" tag-order local-directories directory-stack path-directories
+# Disable category headers.
+zstyle ":completion:*:cd:*:descriptions" format ""
 
 # Colorize completion items.
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
-# Group the matches into categories with formatted descriptions.
+# Group the matches into categories.
 zstyle ":completion:*:descriptions" format '%F{blue}-- %d --%f'
-zstyle ":completion:*:messages" format '%F{purple}-- %d --%f'
-zstyle ":completion:*:warnings" format '%F{red}-- no matches found --%f'
+zstyle ":completion:*:messages" format '%F{yellow}-- %d --%f'
 zstyle ":completion:*" group-name ""
 zstyle ":completion:*" verbose true
 
